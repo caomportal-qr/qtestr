@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>QRコードをかざしてください</title>
+<script src="instascan.min.js"></script>
+<style>
+body {
+    margin: auto;
+    width: 960px;
+    text-align: center;
+    color: gray;
+}
+</style>
+</head>
+
+<body>
+
+
+
+<h1>QRコードをかざしてください</h1>
+
+<video id="preview"></video>
+
+<script>
+
+var videoTag = document.getElementById('preview');
+var scanner = new Instascan.Scanner({ video: videoTag });
+scanner.addListener('scan', function (value) {
+    location.href = value;
+});
+
+Instascan.Camera.getCameras()
+.then(function (cameras) {
+    if (cameras.length > 0) {
+        scanner.start(cameras[0]);
+    }
+    else {
+        alert('カメラが見つかりません');
+    }
+})
+.catch(function(err) {
+    alert(err);
+});
+
+</script>
+
+
+
+</body>
+</html>
