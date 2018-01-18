@@ -1,17 +1,16 @@
 <!doctype html>
 <html>
 <head>
+
 <meta charset="utf-8"/>
 <title>QRコードをかざしてください</title>
-<script src="instascan.min.js"></script>
-<style>
-body {
-    margin: auto;
-    width: 960px;
-    text-align: center;
-    color: gray;
-}
-</style>
+
+<script src="lib/jquery-3.2.1.min.js"></script>
+<script src="lib/instascan.min.js"></script>
+
+<link href="src/style.css" rel="stylesheet">
+<script src="src/index.js"></script>
+
 </head>
 
 <body>
@@ -20,31 +19,13 @@ body {
 
 <h1>QRコードをかざしてください</h1>
 
-<video id="preview"></video>
+<div>
+    <video id="preview"></video>
+</div>
 
-<script>
-
-var videoTag = document.getElementById('preview');
-var scanner = new Instascan.Scanner({ video: videoTag });
-scanner.addListener('scan', function (value) {
-    location.href = value;
-});
-
-Instascan.Camera.getCameras()
-.then(function (cameras) {
-    if (cameras.length > 0) {
-        scanner.start(cameras[0]);
-    }
-    else {
-        alert('カメラが見つかりません');
-    }
-})
-.catch(function(err) {
-    alert(err);
-});
-
-</script>
-
+<div>
+    <span class="select-place"></span>
+</div>
 
 
 </body>
