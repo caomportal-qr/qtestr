@@ -47,7 +47,7 @@ function main() {
 //            if(default_camera_id == null && i == 0) {
 //                default_camera_id = camera.id;
 //            }
-            if(default_camera_id == null && i == 0 || default_camera_id != camera.id && i == 0) {
+            if(default_camera_id == null && i == 0 || camera.id != default_camera_id && i == 0) {
                 default_camera_id = camera.id;
             }
 //2018.01.19 test end
