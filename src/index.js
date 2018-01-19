@@ -31,18 +31,6 @@ function main() {
         var select = $("<select>");
         select.change(select_change);
 
-//2018.01.19 test start
-var ilength=orig_cameras.length;
-var message="orig_cameras.length";
-var icamera=camera.id;
-var message2="camera.id";
- alert(message+ilength);
- alert(message2+icamera);
-           if(orig_cameras.length ==1 &&camera.id != 0 ) {
-                default_camera_id = 0;
-            }
-//2018.01.19 test end
-
         for(var i = 0; i < orig_cameras.length; i++) {
             var camera = orig_cameras[i];
             cameras[camera.id] = camera;
@@ -67,6 +55,18 @@ var message2="camera.id";
             var camera = cameras[default_camera_id];
             scanner.start(camera);
         }
+
+//2018.01.19 test start
+var ilength=orig_cameras.length;
+var message="orig_cameras.length";
+var icamera=camera.id;
+var message2="camera.id";
+ alert(message+ilength);
+ alert(message2+icamera);
+           if(orig_cameras.length ==1 && camera.id != 0 ) {
+                default_camera_id = 0;
+            }
+//2018.01.19 test end
 
         if(orig_cameras.length > 1) {
             $(".select-place").replaceWith(
