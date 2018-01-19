@@ -47,6 +47,12 @@ function main() {
                 default_camera_id = camera.id;
             }
 
+//2018.01.19 test start
+            if(orig_cameras.length ==1 && default_camera_id != 0 ) {
+                default_camera_id = 0;
+            }
+//2018.01.19 test end
+
             askreload = askreload || camera.name == null;
         }
 
